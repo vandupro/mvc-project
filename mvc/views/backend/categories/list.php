@@ -10,11 +10,6 @@
 ?>
 <div class="container">
     <h2>Danh sách loại hàng</h2>
-    <?php
-        if(!empty($err)){
-            echo implode("<br>", $err);
-        }
-    ?>
     <div class="add-cate pt-2 pb-4">
         <a class="btn btn-info" href="<?=BASE_URL?>/admin/category/create">Thêm loại hàng</a>
     </div>

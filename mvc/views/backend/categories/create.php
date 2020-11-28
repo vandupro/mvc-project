@@ -1,8 +1,11 @@
-<?php
-    // require_once "./mvc/views/backend/main/index.php";
-?>
+
 <div class="container">
     <h1>Thêm loại hàng</h1>
+    <h4 style="color:red">
+        <?php
+            echo $message;
+        ?>
+    </h4>
     <form action="" enctype="multipart/form-data" method="post">
         <div class="form-group">
             <label for="cate_name">Tên danh mục</label>

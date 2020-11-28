@@ -7,6 +7,8 @@ class Db
     protected $password = '';
     protected $dbname = 'mvc-project';
 
+    public $message;
+
     public function __construct()
     {
         if (!$this->con) {
@@ -22,7 +24,11 @@ class Db
         try {
             $conn = $this->con;
             $stmt = $conn->prepare($sql);
-            $stmt->execute($sql_args);
+            
+            if(!$stmt->execute($sql_args)){
+                $this->message = 'false';
+                die;
+            }
 
         } catch (PDOException $e) {
             throw $e;

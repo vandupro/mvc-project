@@ -16,20 +16,24 @@
         }
         
         function create(){
-            $err = [];
+            $message='';
             if(isset($_POST['cate'])){
                 extract($_REQUEST);
                 $this->cateModel->cate_insert($cate_name, $cate_image, $created_at);
-                $err[] = 'Thêm danh mục thành công';
-                header("Location:index");
-                exit();
-            }else{
-                $err[] = 'Thêm danh mục thất bại';
+                
+                // header("Location:index");
+                // exit();
+                if($this->cateModel->message == 'flase'){
+                    $message='Thêm danh mục thất bại';
+                }else{
+                    $message = 'Thêm danh mục thành công';
+                }
             }
             $this->be_content = "./mvc/views/backend/categories/create.php";
 
-            $this->view('categories/index');
-            // require_once "./mvc/views/backend/main/index.php";
+            $this->view('categories/index',
+                ['message' => $message]
+            );
         }
         
         function update(){
