@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
             <label for="cate_image">Ảnh</label>
-            <input type="text" class="form-control" name="cate_image" id="cate_image">
+            <input type="file" class="form-control" name="cate_image" id="cate_image">
         </div>
         <div class="form-group">
             <label for="created_at">Tên danh mục</label>
