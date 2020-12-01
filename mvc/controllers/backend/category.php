@@ -19,7 +19,9 @@
         function create(){
             if(isset($_POST['cate'])){
                 extract($_REQUEST);
-                $this->cateModel->cate_insert($cate_name, $cate_image, $created_at);
+                $up_hinh = $this->save_file("cate_image", IMAGE_BE."/categories/");
+                $image = strlen($up_hinh) > 0 ? $up_hinh : 'no picture';
+                $this->cateModel->cate_insert($cate_name, $image, $created_at);
                 
                 // header("Location:index");
                 // exit();

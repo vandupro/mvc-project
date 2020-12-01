@@ -55,7 +55,7 @@
     <li class="nav-item">
         <a class="nav-link" href="<?=BASE_URL?>/admin/user/index">
             <i class="fas fa-fw fa-table"></i>
-            <span>User</span>
+            <span>Users</span>
         </a>
     </li>
     <li class="nav-item">
