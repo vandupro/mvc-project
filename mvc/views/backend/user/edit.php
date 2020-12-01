@@ -1,9 +1,9 @@
 <div class="container">
     <h1> Sửa thông tin User</h1>
     <h4 style="color:red">
-        <!-- <?php
+         <?php
                 echo $message;
-                ?> -->
+                ?> 
     </h4>
     <?php
 
@@ -31,7 +31,7 @@
             <label for="user_image">Ảnh</label>
             <!-- <input type="text" class="form-control" name="user_image" id="user_image"value=""> -->
             <input name="user_image" type="hidden" value="<?= $a[0]['user_image'] ?>">
-            <input name="user_image" type="file">
+            <input name="image" type="file">
             <img src="<?= BASE_URL ?>/public/backend/image/user/<?= $a[0]['user_image'] ?>" alt="" width="80px">
         </div>
         <div class="form-group">

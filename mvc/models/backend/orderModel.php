@@ -17,11 +17,15 @@ class orderModel extends Db{
         ON orders_detail.product_id = products.product_id WHERE order_id=?";
         return $this->pdo_query($sql,$id);
     }
+    
     public function getOrderDelete_by_id($id){
         $sql = "DELETE FROM $this->table WHERE $this->table.`order_id` = ?";
         return $this->pdo_execute($sql, $id);
     }
-    
+    public function getOrder_update($order_id,$require_date,$order_address,$order_status){
+        $sql = "UPDATE $this->table SET require_date=?,order_address=?,order_status=? WHERE $this->table.`order_id` = ?";
+        return $this->pdo_execute($sql,$require_date,$order_address,$order_status,$order_id);
+    }
 
 }
 ?>

@@ -48,8 +48,8 @@ class User extends Controller
         $message = '';
         if (isset($_POST['btn-users'])) {
             extract($_REQUEST);
-            $up_hinh = $this->save_file("user_image", IMAGE_BE . "/user/");
-            $user_image = strlen($up_hinh) > 0 ? $up_hinh : 'No picture';
+            $up_hinh = $this->save_file("image", IMAGE_BE . "/user/");
+            $user_image = strlen($up_hinh) > 0 ? $up_hinh : $user_image;
 
             $this->userModel->getUserUpdate_by_id($user_id,$user_name,$user_image, $user_email,$user_password, $user_address, $role, $created_at, $user_phone,$updated_at);
 
@@ -68,7 +68,7 @@ class User extends Controller
         // extract($user);
         // print_r($categories);
         $this->view('user/index', [
-            'user' => $user
+            'user' => $user,'message' => $message
         ]);
     }
 

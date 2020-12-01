@@ -2,8 +2,8 @@
 
 $a = $data['order'];
 //     echo"<pre>";
-//     $b=(integer)$a[0]['order_quantity'];
-// var_dump($b);
+  
+// var_dump($a);
 
 //     echo"<pre>";
     $tong=0;
@@ -33,10 +33,7 @@ $a = $data['order'];
             </tfoot>
 
         <thead>
-            <tr>
-                <th class="a">ID :</th>
-                <th><?= $a[0]['order_detail_id'] ?></th>
-            </tr>
+           
             <tr>
                 <th class="a">MÃ ĐƠN HÀNG :</th>
                 <th><?= $a[0]['order_id'] ?></th>

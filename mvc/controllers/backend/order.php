@@ -25,7 +25,7 @@ class order extends Controller
         $message = '';
         if (isset($_POST['btn-order'])) {
             extract($_REQUEST);
-            $this->orderModel->getOrderUpdate_by_id($order_id,$order_address,$require_date, $order_status);
+            $this->orderModel->getOrder_update($order_id,$require_date,$order_address,$order_status);
 
  
             if ($this->orderModel->message == 'flase') {
@@ -35,11 +35,10 @@ class order extends Controller
             }
         }
 
-
         $this->be_content = "./mvc/views/backend/order/edit.php";
         $order = $this->orderModel->getOrderAll_by_id($id);
         $this->view('order/index', [
-            'order' => $order
+            'order' => $order,'message' => $message
         ]);
     }
 
