@@ -6,8 +6,7 @@
             $this->cateModel = $this->model('cateModel');
         }
         function index(){
-            
-            $this->be_content = VIEW_URL . "/backend/categories/list.php";
+            $this->be_content = "./mvc/views/backend/categories/list.php";
             // $cateModel = $this->model('cateModel');
             $categories = $this->cateModel->getCateAll();
             // print_r($categories);
@@ -20,17 +19,18 @@
             $message='';
             if(isset($_POST['cate'])){
                 extract($_REQUEST);
-                $up_hinh = $this->save_file("cate_image", IMAGE_BE."/categories/");
-                $image = strlen($up_hinh) > 0 ? $up_hinh : 'No picture';
-
-                $this->cateModel->cate_insert($cate_name, $image, $created_at);
+                $this->cateModel->cate_insert($cate_name, $cate_image, $created_at);
+                
+                // header("Location:index");
+                // exit();
                 if($this->cateModel->message == 'flase'){
                     $message='Thêm danh mục thất bại';
                 }else{
                     $message = 'Thêm danh mục thành công';
                 }
             }
-            $this->be_content = VIEW_URL . "/backend/categories/create.php";
+            $this->be_content = "./mvc/views/backend/categories/create.php";
+
             $this->view('categories/index',
                 ['message' => $message]
             );
