@@ -5,7 +5,7 @@ class Db
     protected $servername = 'localhost';
     protected $username = 'root';
     protected $password = '';
-    protected $dbname = 'DU-AN-DEMO1';
+    protected $dbname = 'mvc-project';
 
     public $message;
 
