@@ -33,6 +33,24 @@
             <span>Categories</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?=BASE_URL?>/admin/info_shop/index">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Info_shop</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?=BASE_URL?>/admin/news/index">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>News</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="<?=BASE_URL?>/admin/comment/index">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Comments</span>
+        </a>
+    </li>
 
 
 </ul>

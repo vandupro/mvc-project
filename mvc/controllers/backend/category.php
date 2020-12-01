@@ -12,12 +12,12 @@
             $categories = $this->cateModel->getCateAll();
             // print_r($categories);
             $this->view('categories/index',[
-                'categories' => $categories
+                'categories' => $categories,
+                'message' => $this->message
             ]);
         }
         
         function create(){
-            $message='';
             if(isset($_POST['cate'])){
                 extract($_REQUEST);
                 $up_hinh = $this->save_file("cate_image", IMAGE_BE."/categories/");
@@ -25,22 +25,48 @@
 
                 $this->cateModel->cate_insert($cate_name, $image, $created_at);
                 if($this->cateModel->message == 'flase'){
-                    $message='Thêm danh mục thất bại';
+                    $this->message='Thêm danh mục thất bại';
                 }else{
-                    $message = 'Thêm danh mục thành công';
+                    $this->message = 'Thêm danh mục thành công';
                 }
             }
             $this->be_content = VIEW_URL . "/backend/categories/create.php";
             $this->view('categories/index',
-                ['message' => $message]
+                ['message' => $this->message]
             );
         }
         
-        function update(){
+        function update($id=0){
+            // echo $id;
+            // die;
+            if(isset($_POST['cate_update'])){
+                extract($_REQUEST);
+                $up_hinh = $this->save_file("image", IMAGE_BE."/categories/");
+                $image = strlen($up_hinh) > 0 ? $up_hinh : $cate_image;
 
+                $this->cateModel->cate_update($cate_name, $image, $created_at, $id);
+                if($this->cateModel->message == 'flase'){
+                    $this->message='Sửa danh mục thất bại';
+                }else{
+                    $this->message = 'Sửa danh mục thành công';
+                }
+            }
+            $category = $this->cateModel->cate_select_by_id($id);
+            $this->be_content = VIEW_URL . "/backend/categories/update.php";
+            $this->view("categories/index",[
+                'category'=>$category,
+                'message' => $this->message
+            ]);
         }
-        function delete(){
-
+        function delete($id=0){
+            $this->cateModel->cate_delete($id);
+            if($this->cateModel->message == 'flase'){
+                $this->message='Xóa danh mục thất bại';
+            }else{
+                $this->message = 'Xóa danh mục thành công';
+            }
+            $this->be_content = VIEW_URL . "/backend/categories/list.php";
+            $this->index();
         }
         function Show($a=0, $b=0){
             // $A = $this->model('SinhVien');

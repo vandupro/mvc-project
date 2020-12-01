@@ -1,6 +1,8 @@
 <?php
 class Controller {
     public $be_content = VIEW_URL."/backend/layouts/content.php";
+    public $message='';
+    
     public function model($model){
         require_once MODEL_URL."/backend/".$model.".php";
         return new $model;

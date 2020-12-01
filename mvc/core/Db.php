@@ -27,9 +27,7 @@ class Db
             
             if(!$stmt->execute($sql_args)){
                 $this->message = 'false';
-                die;
             }
-
         } catch (PDOException $e) {
             throw $e;
             echo $e->getMessage();
@@ -37,16 +35,18 @@ class Db
             unset($conn);
         }
     }
-
     public function pdo_query($sql)
     {
         $sql_args = array_slice(func_get_args(), 1);
         try {
             $conn = $this->con;
             $stmt = $conn->prepare($sql);
-            $stmt->execute($sql_args);
-            $rows = $stmt->fetchAll();
-            return $rows;
+            if(!$stmt->execute($sql_args)){
+                $this->message = 'false';
+            }else{
+                $rows = $stmt->fetchAll();
+                return $rows;
+            }
         } catch (PDOException $e) {
             throw $e;
             echo $e->getMessage();
@@ -62,8 +62,13 @@ class Db
             $conn = $this->con;
             $stmt = $conn->prepare($sql);
             $stmt->execute($sql_args);
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $row;
+            if(!$stmt->execute($sql_args)){
+                $this->message = 'false';
+            }else{
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $row;
+            }
+            
         } catch (PDOException $e) {
             throw $e;
             echo $e->getMessage();
