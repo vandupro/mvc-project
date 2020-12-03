@@ -25,7 +25,7 @@ class cmtModel extends Db
         $sql = "SELECT products.product_id, products.product_name, 
         count($this->comment_id) as 'so_luong', min($this->created_at) as 'cu_nhat', max($this->created_at) as
         'moi_nhat' FROM $this->table join products on comments.product_id=products.product_id group by products.product_id";
-        return $this->pdo_query($sql);   
+        return $this->pdo_query($sql); 
     }
 
     // truy vấn bình luận theo mã hàng hóa

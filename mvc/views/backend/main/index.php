@@ -36,7 +36,7 @@
 
         <!-- Sidebar -->
         <?php
-            require_once VIEW_URL."/backend/layouts/sidebar.php";
+            require_once "mvc/views/backend/layouts/sidebar.php";
         ?>
         <!-- End of Sidebar -->
 
@@ -48,13 +48,14 @@
 
                 <!-- Topbar -->
                 <?php
-                    require_once VIEW_URL."/backend/layouts/header.php"
+                    require_once "mvc/views/backend/layouts/header.php"
                 ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <?php
                 require_once $beContent;
+                // echo $beContent;
             ?>
                 <!-- /.container-fluid -->
 

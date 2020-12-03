@@ -12,7 +12,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item ">
         <a class="nav-link" href="<?=BASE_URL?>/admin/home/index">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -27,9 +27,10 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
+    
     <li class="nav-item">
         <a class="nav-link" href="<?=BASE_URL?>/admin/category/index">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fas fa-fw fa-table"></i>
             <span>Categories</span>
         </a>
     </li>

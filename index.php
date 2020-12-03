@@ -1,5 +1,4 @@
 <?php
-    
     // định nghĩa đường dẫn sử dụng 
     define('BASE_URL', "/abc");
     define('VIEW_URL', './mvc/views');

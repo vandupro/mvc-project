@@ -35,9 +35,7 @@
             <tr>
                 <td><?=$item['cate_id']?></td>
                 <td><?=$item['cate_name']?></td>
-                <td>
-                    <img src="<?=IMGAE_DISPLAY?>/backend/image/categories/<?=$item['cate_image']?>" alt="">
-                </td>
+                <td><?=$item['cate_image']?></td>
                 <td><?=$item['created_at']?></td>
                 <td>
                     <a class="btn btn-warning" href="<?=BASE_URL?>/admin/category/update/<?=$item['cate_id']?>">Sửa</a>
